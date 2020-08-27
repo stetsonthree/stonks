@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_041237) do
+ActiveRecord::Schema.define(version: 2020_08_27_043627) do
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.date "open_date"
+    t.date "close_date"
+    t.integer "cost"
+    t.decimal "quantity"
+    t.text "notes"
+    t.boolean "status"
+    t.integer "portfolio_id", null: false
+    t.integer "stock_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["portfolio_id"], name: "index_positions_on_portfolio_id"
+    t.index ["stock_id"], name: "index_positions_on_stock_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "name"
+    t.string "symbol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +59,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_041237) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "portfolios", "users"
+  add_foreign_key "positions", "portfolios"
+  add_foreign_key "positions", "stocks"
 end

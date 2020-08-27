@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Open date:</strong>
+  <%= @position.open_date %>
+</p>
+
+<p>
+  <strong>Close date:</strong>
+  <%= @position.close_date %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @position.cost %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @position.quantity %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @position.notes %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @position.status %>
+</p>
+
+<p>
+  <strong>Portfolio:</strong>
+  <%= @position.portfolio_id %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @position.stock_id %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_position_path(@portfolio, @position) %> |
+<%= link_to 'Back', portfolio_positions_path(@portfolio) %>

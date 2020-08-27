@@ -10,5 +10,15 @@
   <%= @portfolio.user_id %>
 </p>
 
+<h2>Positions</h2>
+<% for position in @portfolio.positions %>
+  <ul>
+    <li>
+      <%= position.stock.name %> ($<%= position.stock.symbol %>)
+    </li>
+  </ul>
+<% end %>
+
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Add Position', portfolio_positions_path(@portfolio) %>
 <%= link_to 'Back', portfolios_path %>
