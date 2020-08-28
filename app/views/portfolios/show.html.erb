@@ -14,7 +14,7 @@
 <% for position in @portfolio.positions %>
   <ul>
     <li>
-      <%= position.stock.name %> ($<%= position.stock.symbol %>)
+      <%= position.stock.name %> <%= position.stock.symbol %>
     </li>
   </ul>
 <% end %>

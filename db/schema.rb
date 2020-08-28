@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_043627) do
+ActiveRecord::Schema.define(version: 2020_08_28_040658) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_043627) do
   create_table "positions", force: :cascade do |t|
     t.date "open_date"
     t.date "close_date"
-    t.integer "cost"
+    t.integer "cost_cents"
     t.decimal "quantity"
     t.text "notes"
     t.boolean "status"

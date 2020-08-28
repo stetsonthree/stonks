@@ -27,10 +27,13 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-# Custom gems
+# User Specific gems
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-apple'
+
+# Other Gems
+gem 'money-rails', '~>1.12'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
