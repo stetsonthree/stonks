@@ -74,6 +74,6 @@ class PositionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def position_params
-      params.require(:position).permit(:open_date, :close_date, :cost, :quantity, :notes, :status, :portfolio_id, :stock_id)
+      params.require(:position).permit(:open_date, :close_date, :cost_cents, :quantity, :notes, :status, :portfolio_id, :stock_id)
     end
 end
