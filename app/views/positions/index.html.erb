@@ -25,7 +25,7 @@
         <td><%= position.close_date %></td>
         <td><%= currency_symbol + position.cost %></td>
         <td><%= position.quantity %></td>
-        <td><%= currency_symbol + (position.cost * position.quantity) %></td>
+        <td><%= currency_symbol + position.position_size %></td>
         <td><%= position.notes %></td>
         <td><%= position.status %></td>
         <td><%= position.portfolio_id %></td>
