@@ -10,6 +10,7 @@
       <th>Cost</th>
       <th>Quantity</th>
       <th>Position Size</th>
+      <th>Portfolio %</th>
       <th>Notes</th>
       <th>Status</th>
       <th>Portfolio</th>
@@ -26,6 +27,7 @@
         <td><%= currency_symbol + position.cost %></td>
         <td><%= position.quantity %></td>
         <td><%= currency_symbol + position.position_size %></td>
+        <td><%= position.portfolio_part %></td>
         <td><%= position.notes %></td>
         <td><%= position.status %></td>
         <td><%= position.portfolio_id %></td>
@@ -39,5 +41,7 @@
 </table>
 
 <br>
+<h3>Add a New Position</h3>
+<%= render 'form', position: @portfolio.positions.build %>
 
 <%= link_to 'New Position', new_portfolio_position_path(@portfolio) %>
