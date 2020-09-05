@@ -7,4 +7,8 @@ class Position < ApplicationRecord
   def position_size
     cost * quantity
   end
+
+  def portfolio_part
+    position_size / portfolio.size
+  end
 end

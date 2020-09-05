@@ -5,6 +5,6 @@ class Portfolio < ApplicationRecord
   has_many :positions, dependent: :destroy
 
   def size
-    self.positions.sum(:cost_cents)
+    positions.sum(:cost_cents) * 0.01
   end
 end
