@@ -5,6 +5,10 @@ class Portfolio < ApplicationRecord
   has_many :positions, dependent: :destroy
 
   def size
-    positions.sum(:cost_cents) * 0.01
+    portsize = 0
+    positions.each do |position|
+      portsize += position.position_size
+    end
+    portsize
   end
 end
