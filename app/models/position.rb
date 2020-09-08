@@ -9,6 +9,6 @@ class Position < ApplicationRecord
   end
 
   def portfolio_part
-    position_size / portfolio.size
+    ((position_size / portfolio.size) * 100).round(2)
   end
 end
