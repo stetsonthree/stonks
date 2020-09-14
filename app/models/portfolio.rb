@@ -11,4 +11,12 @@ class Portfolio < ApplicationRecord
     end
     portsize
   end
+
+  def stocklist
+    stocklist = []
+    positions.each do |stock|
+      stocklist << Stock.find_by(id: stock.stock_id).symbol
+    end
+    stocklist.uniq
+  end
 end

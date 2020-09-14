@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Stocks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= stocklist %>
+  </tbody>
+</table>
+
 <h1>Positions</h1>
 
 <table>
@@ -31,7 +44,7 @@
         <td><%= position.notes %></td>
         <td><%= position.status %></td>
         <td><%= position.portfolio_id %></td>
-        <td><%= position.stock_id %></td>
+        <td><%= Stock.find_by(id: position.stock_id).symbol %></td>
         <td><%= link_to 'Show Portfolio', [@portfolio] %></td>
         <td><%= link_to 'Edit Position', edit_portfolio_position_path(@portfolio, position) %></td>
         <td><%= link_to 'Destroy Position', [@portfolio, position], method: :delete, data: { confirm: 'Are you sure?' } %></td>
