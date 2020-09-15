@@ -1,0 +1,81 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @portfolio.name
+p#notice
+  = notice
+h1
+  | Stocks
+table
+  thead
+    tr
+      th
+        | Symbol
+  tbody
+    - @portfolio.stocklist.each do |symbol|
+      tr
+        td
+          = symbol
+h1
+  | Positions
+table
+  thead
+    tr
+      th
+        | Open date
+      th
+        | Close date
+      th
+        | Cost
+      th
+        | Quantity
+      th
+        | Position Size
+      th
+        | Portfolio %
+      th
+        | Notes
+      th
+        | Status
+      th
+        | Portfolio
+      th
+        | Stock
+      th[colspan="3"]
+  tbody
+    - @portfolio.positions.each do |position|
+      tr
+        td
+          = position.open_date
+        td
+          = position.close_date
+        td
+          = currency_symbol + position.cost
+        td
+          = position.quantity
+        td
+          = currency_symbol + position.position_size
+        td
+          = position.portfolio_part
+        td
+          = position.notes
+        td
+          = position.status
+        td
+          = position.portfolio_id
+        td
+          = Stock.find_by(id: position.stock_id).symbol
+        td
+          = link_to 'Show Portfolio', [@portfolio]
+        td
+          = link_to 'Edit Position', edit_portfolio_position_path(@portfolio, position)
+        td
+          = link_to 'Destroy Position', [@portfolio, position], method: :delete, data: { confirm: 'Are you sure?' }
+br
+h3
+  | Add a New Position
+= link_to 'New Position', new_portfolio_position_path(@portfolio)
+h4
+  | Tata for now
