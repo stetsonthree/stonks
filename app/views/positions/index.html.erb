@@ -37,9 +37,9 @@
       <tr>
         <td><%= position.open_date %></td>
         <td><%= position.close_date %></td>
-        <td><%= currency_symbol + position.cost %></td>
+        <td><%= humanized_money_with_symbol position.cost %></td>
         <td><%= position.quantity %></td>
-        <td><%= currency_symbol + position.position_size %></td>
+        <td><%= humanized_money_with_symbol position.position_size %></td>
         <td><%= position.portfolio_part %></td>
         <td><%= position.notes %></td>
         <td><%= position.status %></td>

@@ -52,11 +52,11 @@ table
         td
           = position.close_date
         td
-          = currency_symbol + position.cost
+          = humanized_money_with_symbol position.cost
         td
           = position.quantity
         td
-          = currency_symbol + position.position_size
+          = humanized_money_with_symbol position.position_size
         td
           = position.portfolio_part
         td
