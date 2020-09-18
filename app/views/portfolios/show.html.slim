@@ -24,9 +24,7 @@ table
   thead
     tr
       th
-        | Open date
-      th
-        | Close date
+        | Stock
       th
         | Cost
       th
@@ -42,15 +40,15 @@ table
       th
         | Portfolio
       th
-        | Stock
-      th[colspan="3"]
+        | Open date
+      th
+        | Close date
+      th[colspan="2"]
   tbody
     - @portfolio.positions.each do |position|
       tr
         td
-          = position.open_date
-        td
-          = position.close_date
+          = Stock.find_by(id: position.stock_id).symbol
         td
           = humanized_money_with_symbol position.cost
         td
@@ -66,9 +64,9 @@ table
         td
           = position.portfolio_id
         td
-          = Stock.find_by(id: position.stock_id).symbol
+          = position.open_date
         td
-          = link_to 'Show Portfolio', [@portfolio]
+          = position.close_date
         td
           = link_to 'Edit Position', edit_portfolio_position_path(@portfolio, position)
         td
