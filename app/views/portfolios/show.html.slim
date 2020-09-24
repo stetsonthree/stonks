@@ -43,6 +43,8 @@ table
         | Open date
       th
         | Close date
+      th
+        | Days Holding Stock
       th[colspan="2"]
   tbody
     - @portfolio.positions.each do |position|
@@ -67,6 +69,8 @@ table
           = position.open_date
         td
           = position.close_date
+        td
+          = pluralize(position.days_held, "Day")
         td
           = link_to 'Edit Position', edit_portfolio_position_path(@portfolio, position)
         td
