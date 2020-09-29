@@ -70,7 +70,7 @@ table
         td
           = position.close_date
         td
-          = pluralize(position.days_held, "Day")
+          = distance_of_time_in_words(position.open_date, position.close_date)
         td
           = link_to 'Edit Position', edit_portfolio_position_path(@portfolio, position)
         td

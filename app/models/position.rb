@@ -11,8 +11,4 @@ class Position < ApplicationRecord
   def portfolio_part
     ((position_size / portfolio.size) * 100).round(2)
   end
-
-  def days_held
-    (close_date - open_date).to_i
-  end
 end
